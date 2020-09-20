@@ -9,3 +9,6 @@
 
 Search for @types/faker
 \$ npm install @types/faker
+
+Search for @types/googlemaps
+\$ npm install @types/googlemaps
