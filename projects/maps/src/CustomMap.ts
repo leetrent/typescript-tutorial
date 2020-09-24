@@ -1,10 +1,12 @@
-import { User } from './User';
-import { Company } from './Company';
+interface Mapable {
+  location: {
+    lat: number;
+    lng: number;
+  };
+}
 
 export class CustomMap {
-  
-  private googleMap: google.maps.Map;
-  
+  private googleMap: google.maps.Map; 
   constructor(divID: string) {
     this.googleMap = new google.maps.Map(document.getElementById(divID), {
       zoom: 1,
@@ -12,24 +14,13 @@ export class CustomMap {
     });
   }
 
-  addUserMarker(user: User): void {
+  addMarker(mapable: Mapable): void {
     new google.maps.Marker({
       map: this.googleMap,
       position: {
-        lat: user.location.lat,
-        lng: user.location.lng
+        lat: mapable.location.lat,
+        lng: mapable.location.lng
       }
     });
   }
-
-  addCompanyMarker(company: Company): void {
-    new google.maps.Marker({
-      map: this.googleMap,
-      position: {
-        lat: company.location.lat,
-        lng: company.location.lng
-      }
-    });
-  }
-
 }
