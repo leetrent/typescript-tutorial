@@ -1,4 +1,4 @@
-interface Mapable {
+export interface Mapable {
   location: {
     lat: number;
     lng: number;
